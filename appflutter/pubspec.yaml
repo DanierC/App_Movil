@@ -1,0 +1,65 @@
+name: appflutter
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+fonts:
+  - family: Montserrat
+    fonts:
+      - asset: assets/open-sans.ttf
+  - family: Arial
+    fonts:
+      - asset: fonts/Arial.ttf
+  - family: Roboto
+    fonts:
+      - asset: fonts/Roboto-Regular.ttf
+  - family: NotoSans
+    fonts:
+      - asset: fonts/NotoSans-Regular.ttf
+  - family: OpenSans
+    fonts:
+      - asset: OpenSans-Regular.ttf
+dependencies:
+  flutter_cors: ^1.1.0
+  flutter:
+    sdk: flutter
+  snippet_coder_utils: ^1.0.9
+  image_picker: ^0.8.4+4
+  http: ^0.13.5
+  email_validator: ^2.1.17
+  pdf: ^3.10.6
+  intl: ^0.17.0
+  path_provider: ^2.0.5
+  open_document: ^1.0.6
+  docx_to_text: ^1.0.1
+  open_file: ^3.3.2
+  docx_template: ^0.3.6
+  share: ^2.0.1
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.0+1
+  collection: ^1.15.0
+  flutter_typeahead: ^4.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+
+  assets:
+    - assets/images/
+    - assets/fonts/
+
