@@ -237,10 +237,10 @@ class MenuState extends State<Menu> {
               leading: const Icon(Icons.touch_app_outlined),
               selected: (3 == _selectDrawerItem),
               onTap: () {
-                // Limpiar los datos del AuthProvider
+                // Llama al método logout de AuthProvider
                 Provider.of<AuthProvider>(context, listen: false).logout();
 
-                // Redirigir a la pantalla de inicio de sesión
+                // Redirige a la pantalla de inicio de sesión
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MyApp()),

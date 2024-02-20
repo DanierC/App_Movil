@@ -100,6 +100,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController cargoController = TextEditingController();
+  TextEditingController idController = TextEditingController();
 
   final urllogin = Uri.http(Config.apiURL, Config.loginAPI);
   final urlobtenertoken = Uri.http(Config.apiURL, Config.obtenertokenAPI);
@@ -229,22 +230,38 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
     final data3 = Map.from(jsonDecode(res3.body));
     final cargo = data3["cargo"];
+    final id = data3["id"] as int?;
 
-    final user = Usuario(
-      email: nameController.text,
-      password: passwordController.text,
-      cargo: cargo,
-      token: token,
-    );
+    if (!Provider.of<AuthProvider>(context, listen: false).isUserAllowedToLogin(cargo)) {
+      showSnackbar("No estás autorizado para iniciar sesión como Cliente");
+      return;
+    }
+
+    if (id != null) {
+      final user = Usuario(
+        email: nameController.text,
+        password: passwordController.text,
+        id: id,
+        cargo: cargo,
+        token: token,
+      );
+
+      // Resto del código...
+    } else {
+      // Manejar el caso en que id sea nulo
+      // Puede mostrar un mensaje de error o tomar alguna otra acción apropiada
+    }
 
     // Espera a que se reciba la respuesta del servidor antes de guardar los datos de inicio de sesión en el AuthProvider
     await Future.delayed(const Duration(milliseconds: 1000));
     print(cargo);
+    print(token);
+    print(id);
     // Espera a que se guarden los datos de inicio de sesión antes de cargar el Menu widget
     await Provider.of<AuthProvider>(context, listen: false).fetchData();
     Provider.of<AuthProvider>(context, listen: false).setToken(token);
     Provider.of<AuthProvider>(context, listen: false).setCargo(cargo);
-
+    Provider.of<AuthProvider>(context, listen: false).setId(id);
     Navigator.pushNamed(context, '/home');
   }
 }

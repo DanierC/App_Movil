@@ -22,7 +22,7 @@ class APIRegistrar {
     );
 
     if (response.statusCode == 200) {
-      return compute(usuarioFromJson, response.body);
+      return usuarioFromJson( response.body);
 
       //return true;
     } else {
@@ -47,6 +47,8 @@ class APIRegistrar {
 
 
     var request = http.MultipartRequest(requestMethod, url);
+    request.fields["id"] =
+        model.id!.toString();
     request.fields['email'] = model.email!;
     request.fields['password'] = model.password!;
     request.fields['cargo'] = model.cargo!;

@@ -42,7 +42,7 @@ class UsuarioModel {
 
   factory UsuarioModel.fromJson(Map<String, dynamic> json) {
     return UsuarioModel(
-      id: json['id'] as int,
+      id: json['id'] as int?,
       email: json['email'] as String?,
       password: json['password'] as String?,
       cargo: json['cargo'] as String?,

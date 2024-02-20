@@ -3,13 +3,18 @@ import 'package:appflutter/models/musica_model.dart';
 import 'package:http/http.dart' as http;
 import '../../config.dart';
 import 'dart:convert';
+import '../AuthProvider.dart';
 
 class APIMusica {
   static var client = http.Client();
 
   static Future<List<MusicaModel>?> getMusica() async {
+    AuthProvider authProvider = AuthProvider(); // Obtiene la instancia única de AuthProvider
+    String? tokenA = authProvider.token;
+    print('Token guardado: $tokenA');
     Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
+      'Authorization': 'Token $tokenA',
     };
 
     var url = Uri.http(
@@ -63,8 +68,12 @@ class APIMusica {
   }
 
   static Future<bool> deleteMusica(MusicaId) async {
+    AuthProvider authProvider = AuthProvider(); // Obtiene la instancia única de AuthProvider
+    String? tokenA = authProvider.token;
+    print('Token guardado: $tokenA');
     Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
+      "Authorization": "Token $tokenA",
     };
 
     var url = Uri.http(Config.apiURL, "${Config.musicaAPI}$MusicaId/");

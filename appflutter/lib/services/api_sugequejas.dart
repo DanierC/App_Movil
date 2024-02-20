@@ -4,13 +4,18 @@ import 'package:http/http.dart' as http;
 import '../../config.dart';
 import 'package:intl/intl.dart';
 import 'dart:convert';
+import '../AuthProvider.dart';
 
 class APISugeQ {
   static var client = http.Client();
 
   static Future<List<SugeQModel>?> getSugeQ() async {
+    AuthProvider authProvider = AuthProvider(); // Obtiene la instancia única de AuthProvider
+    String? tokenA = authProvider.token;
+    print('Token guardado: $tokenA');
     Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
+      'Authorization': 'Token $tokenA',
     };
 
     var url = Uri.http(
@@ -25,8 +30,6 @@ class APISugeQ {
 
     if (response.statusCode == 200) {
       return compute(sugeQFromJson, (utf8.decode(response.bodyBytes)));
-
-      //return true;
     } else {
       return null;
     }
@@ -70,8 +73,12 @@ class APISugeQ {
   }
 
   static Future<bool> deleteSugeQ(sugeqId) async {
+    AuthProvider authProvider = AuthProvider(); // Obtiene la instancia única de AuthProvider
+    String? tokenA = authProvider.token;
+    print('Token guardado: $tokenA');
     Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
+      "Authorization": "Token $tokenA",
     };
 
     var url = Uri.http(Config.apiURL, "${Config.sugequejasAPI}$sugeqId/");
