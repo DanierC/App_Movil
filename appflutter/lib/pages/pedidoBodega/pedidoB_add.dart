@@ -9,7 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
-
+import '../../AuthProvider.dart';
 import '../../config.dart';
 
 class PedidoBAdd extends StatefulWidget {
@@ -73,6 +73,8 @@ class _PedidoBAddState extends State<PedidoBAdd> {
         listaDeProductos = productos ?? [];
       });
     });
+    AuthProvider authProvider = AuthProvider();
+    pedidoModel!.id_Usuario = authProvider.id; // Asigna el id del usuario
     Future.delayed(Duration.zero, () {
       if (ModalRoute.of(context)?.settings.arguments != null) {
         final Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
@@ -195,7 +197,9 @@ class _PedidoBAddState extends State<PedidoBAdd> {
                   setState(() {
                     isApiCallProcess = true;
                   });
-
+                  AuthProvider authProvider = AuthProvider();
+                  int? idUsuario = authProvider.id;
+                  pedidoModel!.id_Usuario = idUsuario;
                   APIPedidoB.savePedidoB(
                     pedidoModel!,
                     isEditMode,

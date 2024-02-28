@@ -24,7 +24,7 @@ class APIPedidoM {
     if (response.statusCode == 200) {
       return compute(pedidoMFromJson, response.body);
 
-      //return true;
+
     } else {
       return null;
     }
@@ -50,6 +50,8 @@ class APIPedidoM {
     var request = http.MultipartRequest(requestMethod, url);
     request.fields["cantidad"] =
         model.cantidad!.toString();
+    request.fields["id_Usuario"] =
+        model.id_Usuario!.toString();
     request.fields["articulo_Id"] =
         model.articulo_Id!.toString();
 

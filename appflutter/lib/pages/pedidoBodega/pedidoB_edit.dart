@@ -22,6 +22,22 @@ class PedidoBEdit extends StatefulWidget {
 
 class _PedidoBEditState extends State<PedidoBEdit> {
   List<ProductoModel> listaDeProductos = [];
+  int getFactorCantidad(String tipoCantidad) {
+    switch (tipoCantidad) {
+      case "Unidad":
+        return 1;
+      case "Decena":
+        return 10;
+      case "Docena":
+        return 12;
+      case "PacaX20":
+        return 20;
+      case "PacaX24":
+        return 24;
+      default:
+        return 1;
+    }
+  }
 
   PedidoBModel? pedidoModel;
   static final GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
@@ -234,6 +250,7 @@ class _PedidoBEditState extends State<PedidoBEdit> {
     final form = globalFormKey.currentState;
     if (form!.validate()) {
       form.save();
+      pedidoModel?.cantidad_Total = (pedidoModel?.cantidad ?? 0) * getFactorCantidad(pedidoModel?.tipo_Cantidad ?? "");
       return true;
     }
     return false;

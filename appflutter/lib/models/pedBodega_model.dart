@@ -9,6 +9,7 @@ List<PedidoBModel> pedidoBFromJson(String responseBody) {
 
 class PedidoBModel {
   late int? id_Orden_Bodega;
+  late int? id_Usuario;
   late int? cantidad;
   late int? cantidad_Total;
   late String? tipo_Cantidad;
@@ -41,6 +42,7 @@ class PedidoBModel {
 
   PedidoBModel({
     this.id_Orden_Bodega,
+    this.id_Usuario,
     this.cantidad,
     this.cantidad_Total,
     this.tipo_Cantidad,
@@ -52,6 +54,7 @@ class PedidoBModel {
   factory PedidoBModel.fromJson(Map<String, dynamic> json) {
     return PedidoBModel(
       id_Orden_Bodega: json['id_Orden_Bodega'] as int?,
+      id_Usuario: json['id_Usuario'] as int?,
       cantidad: json['cantidad'] as int?,
       cantidad_Total: json['cantidad_Total'] as int?,
       tipo_Cantidad: json['tipo_Cantidad'] as String?,
@@ -64,6 +67,7 @@ class PedidoBModel {
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['id_Orden_Bodega'] = id_Orden_Bodega;
+    data['id_Usuario'] = id_Usuario;
     data['cantidad'] = cantidad;
     data['cantidad_Total'] = cantidad_Total;
     data['tipo_Cantidad'] = tipo_Cantidad;

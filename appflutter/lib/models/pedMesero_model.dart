@@ -9,11 +9,13 @@ List<PedidoModel> pedidoMFromJson(String responseBody) {
 
 class PedidoModel {
   late int? id_Orden;
+  late int? id_Usuario;
   late int? cantidad;
   late int? articulo_Id;
 
   PedidoModel({
     this.id_Orden,
+    this.id_Usuario,
     this.cantidad,
     this.articulo_Id,
   });
@@ -21,6 +23,7 @@ class PedidoModel {
   factory PedidoModel.fromJson(Map<String, dynamic> json) {
     return PedidoModel(
       id_Orden: json['id_Orden'] as int?,
+      id_Usuario: json['id_Usuario'] as int?,
       cantidad: json['cantidad'] as int?,
       articulo_Id: json['articulo_Id'] as int?,
     );
@@ -29,6 +32,7 @@ class PedidoModel {
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['id_Orden'] = id_Orden;
+    data['id_Usuario'] = id_Usuario;
     data['cantidad'] = cantidad;
     data['articulo_Id'] = articulo_Id;
     return data;

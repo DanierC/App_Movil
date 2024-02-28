@@ -45,7 +45,9 @@ class AuthProvider with ChangeNotifier {
     // Limpiar los datos, por ejemplo, establecer el usuario actual como null
     // y cualquier otro dato relacionado con la sesión
     setToken(null);
+    setId(null);
     setCargo(null);
+
 
     // Notificar a los escuchadores (si los tienes) que los datos han cambiado
     notifyListeners();

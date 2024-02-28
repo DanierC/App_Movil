@@ -4,6 +4,8 @@ import '../../models/pedBodega_model.dart';
 import 'package:appflutter/models/producto_model.dart';
 import 'package:intl/intl.dart';
 import 'package:appflutter/services/api_producto.dart';
+import 'package:appflutter/models/usuarios_model.dart';
+import 'package:appflutter/services/api_usuarios.dart';
 
 class PedidoBItem extends StatelessWidget {
   final PedidoBModel? model;
@@ -54,7 +56,33 @@ class PedidoBItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Cantidad",
+                "Realizado Por:",
+                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              FutureBuilder<List<Usuario2Model>?>(
+                future: APIUsuario2.getUsuario2(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    // Encontrar el producto que tiene el mismo ID que el ID del producto que se muestra en la tarjeta.
+                    Usuario2Model? usuario = snapshot.data!.firstWhere((usuario) => usuario.id == model!.id_Usuario);
+
+                    // Si el producto se encontró, mostrar su nombre en la tarjeta.
+                    if (usuario != null) {
+                      return Text(
+                        capitalizeWords(usuario.name.toString()),
+                        style: TextStyle(color: Colors.black),
+                      );
+                    } else {
+                      // Si el producto no se encontró, mostrar un mensaje de error.
+                      return Text("Error: Usuario no encontrado.");
+                    }
+                  } else {
+                    return Text("Cargando...");
+                  }
+                },
+              ),
+              Text(
+                "\nCantidad",
                 style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
               ),
               Text(

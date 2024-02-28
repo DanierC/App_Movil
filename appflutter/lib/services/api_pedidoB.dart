@@ -24,7 +24,7 @@ class APIPedidoB {
     if (response.statusCode == 200) {
       return compute(pedidoBFromJson, response.body);
 
-      //return true;
+
     } else {
       return null;
     }
@@ -54,6 +54,8 @@ class APIPedidoB {
     var request = http.MultipartRequest(requestMethod, url);
     request.fields["cantidad"] =
         model.cantidad!.toString();
+    request.fields["id_Usuario"] =
+        model.id_Usuario!.toString();
     request.fields["estado_Pedido"] = model.estado_Pedido!;
     request.fields["cantidad_Total"] = model.cantidad_Total!.toString();
     request.fields['tipo_Cantidad'] = model.tipo_Cantidad!;
