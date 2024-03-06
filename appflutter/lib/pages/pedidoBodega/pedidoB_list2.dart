@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/pedBodega_model.dart';
-import 'package:appflutter/pages/pedidoBodega/pedidoB_item2.dart';
-import 'package:appflutter/services/api_pedidoB.dart';
+import 'package:NivelesClub/models/pedBodega_model.dart';
+import 'package:NivelesClub/pages/pedidoBodega/pedidoB_item2.dart';
+import 'package:NivelesClub/services/api_pedidoB.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'dart:io';
 import 'dart:async';
 import 'package:path_provider/path_provider.dart';
-import 'package:appflutter/models/producto_model.dart';
+import 'package:NivelesClub/models/producto_model.dart';
 import 'package:intl/intl.dart';
-import 'package:appflutter/services/api_producto.dart';
+import 'package:NivelesClub/services/api_producto.dart';
 
 class PedidoBList2 extends StatefulWidget {
   const PedidoBList2({Key? key}) : super(key: key);

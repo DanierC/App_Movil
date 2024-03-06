@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/musica_model.dart';
-import 'package:appflutter/pages/musica/musica_item.dart';
-import 'package:appflutter/services/api_musica.dart';
+import 'package:NivelesClub/models/musica_model.dart';
+import 'package:NivelesClub/pages/musica/musica_item.dart';
+import 'package:NivelesClub/services/api_musica.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
 class MusicaList extends StatefulWidget {

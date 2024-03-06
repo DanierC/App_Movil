@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/inventario_model.dart';
-import 'package:appflutter/pages/inventario/inventario_item.dart';
-import 'package:appflutter/services/api_inventario.dart';
+import 'package:NivelesClub/models/inventario_model.dart';
+import 'package:NivelesClub/pages/inventario/inventario_item.dart';
+import 'package:NivelesClub/services/api_inventario.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'dart:io';
 import 'dart:async';
 import 'package:intl/intl.dart';
-import 'package:appflutter/services/api_producto.dart';
-import 'package:appflutter/models/producto_model.dart';
+import 'package:NivelesClub/services/api_producto.dart';
+import 'package:NivelesClub/models/producto_model.dart';
 
 class InventarioList extends StatefulWidget {
   const InventarioList({Key? key}) : super(key: key);

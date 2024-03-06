@@ -38,9 +38,9 @@ class EventoItem extends StatelessWidget {
           alignment: Alignment.center,
           margin: const EdgeInsets.all(10),
           child: Image.network(
-            (model!.foto == null || model!.foto == "")
+            (model!.imagen_Evento == null || model!.imagen_Evento == "")
                 ? "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
-                : model!.foto!,
+                : model!.imagen_Evento!,
             height: 70,
             fit: BoxFit.scaleDown,
           ),

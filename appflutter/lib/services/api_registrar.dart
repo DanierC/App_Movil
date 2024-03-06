@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:appflutter/models/registrar_model.dart';
+import 'package:NivelesClub/models/registrar_model.dart';
 import 'package:http/http.dart' as http;
 import '../../config.dart';
 
@@ -47,8 +47,7 @@ class APIRegistrar {
 
 
     var request = http.MultipartRequest(requestMethod, url);
-    request.fields["id"] =
-        model.id!.toString();
+
     request.fields['email'] = model.email!;
     request.fields['password'] = model.password!;
     request.fields['cargo'] = model.cargo!;

@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/evento_model.dart';
-import 'package:appflutter/services/api_evento.dart';
+import 'package:NivelesClub/models/evento_model.dart';
+import 'package:NivelesClub/services/api_evento.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
@@ -14,7 +14,6 @@ class EventoAddEdit extends StatefulWidget {
   const EventoAddEdit({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _EventoAddEditState createState() => _EventoAddEditState();
 }
 
@@ -41,7 +40,7 @@ class _EventoAddEditState extends State<EventoAddEdit> {
           key: UniqueKey(),
           child: Form(
             key: globalFormKey,
-            child: eventoForm(),
+            child: productoForm(),
           ),
         ),
       ),
@@ -63,7 +62,7 @@ class _EventoAddEditState extends State<EventoAddEdit> {
     });
   }
 
-  Widget eventoForm() {
+  Widget productoForm() {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -89,12 +88,14 @@ class _EventoAddEditState extends State<EventoAddEdit> {
 
                 return null;
               },
-                  (onSavedVal) => {
-                    if (double.tryParse(onSavedVal) != null) {
-                      eventoModel!.precio_Palco = int.parse(onSavedVal),
-                    } else {
-                      // Manejar el caso en el que la entrada no es un número válido.
-                    }
+                  (onSavedVal) =>
+              {
+                if (double.tryParse(onSavedVal) != null) {
+                  eventoModel!.precio_Palco = int.parse(onSavedVal),
+                } else
+                  {
+                    // Manejar el caso en el que la entrada no es un número válido.
+                  }
               },
               initialValue: eventoModel!.precio_Palco == null
                   ? ""
@@ -129,12 +130,14 @@ class _EventoAddEditState extends State<EventoAddEdit> {
 
                 return null;
               },
-                  (onSavedVal) => {
-                    if (double.tryParse(onSavedVal) != null) {
-                      eventoModel!.cantidad_Personas= int.parse(onSavedVal),
-                    } else {
-                      // Manejar el caso en el que la entrada no es un número válido.
-                    }
+                  (onSavedVal) =>
+              {
+                if (double.tryParse(onSavedVal) != null) {
+                  eventoModel!.cantidad_Personas = int.parse(onSavedVal),
+                } else
+                  {
+                    // Manejar el caso en el que la entrada no es un número válido.
+                  }
               },
               initialValue: eventoModel!.cantidad_Personas == null
                   ? ""
@@ -147,7 +150,18 @@ class _EventoAddEditState extends State<EventoAddEdit> {
               borderRadius: 10,
             ),
           ),
-
+          picPicker(
+            isImageSelected,
+            eventoModel!.imagen_Evento ?? "",
+                (file) => {
+              setState(
+                    () {
+                  eventoModel!.imagen_Evento= file.path;
+                  isImageSelected = true;
+                },
+              )
+            },
+          ),
           const SizedBox(
             height: 20,
           ),
@@ -156,6 +170,7 @@ class _EventoAddEditState extends State<EventoAddEdit> {
               "Guardar Evento",
                   () {
                 if (validateAndSave()) {
+
                   setState(() {
                     isApiCallProcess = true;
                   });
@@ -171,11 +186,7 @@ class _EventoAddEditState extends State<EventoAddEdit> {
                       });
 
                       if (response) {
-                        Navigator.pushNamedAndRemoveUntil(
-                          context,
-                          '/list-evento',
-                              (route) => false,
-                        );
+                        Navigator.pop(context);
                       } else {
                         FormHelper.showSimpleAlertDialog(
                           context,
@@ -214,9 +225,77 @@ class _EventoAddEditState extends State<EventoAddEdit> {
     return false;
   }
 
+  static Widget picPicker(
+      bool isImageSelected,
+      String fileName,
+      Function onFilePicked,
+      ) {
+    Future<XFile?> imageFile;
+    ImagePicker picker = ImagePicker();
 
+    return Column(
+      children: [
+        fileName.isNotEmpty
+            ? isImageSelected
+            ? Image.file(
+          File(fileName),
+          width: 300,
+          height: 300,
+        )
+            : SizedBox(
+          child: Image.network(
+            fileName,
+            width: 200,
+            height: 200,
+            fit: BoxFit.scaleDown,
+          ),
+        )
+            : SizedBox(
+          child: Image.network(
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png",
+            width: 200,
+            height: 200,
+            fit: BoxFit.scaleDown,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 35.0,
+              width: 35.0,
+              child: IconButton(
+                padding: const EdgeInsets.all(0),
+                icon: const Icon(Icons.image, size: 35.0),
+                onPressed: () {
+                  imageFile = picker.pickImage(source: ImageSource.gallery);
+                  imageFile.then((file) async {
+                    onFilePicked(file);
+                  });
+                },
+              ),
+            ),
+            SizedBox(
+              height: 35.0,
+              width: 35.0,
+              child: IconButton(
+                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                icon: const Icon(Icons.camera, size: 35.0),
+                onPressed: () {
+                  imageFile = picker.pickImage(source: ImageSource.camera);
+                  imageFile.then((file) async {
+                    onFilePicked(file);
+                  });
+                },
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 
   isValidURL(url) {
     return Uri.tryParse(url)?.hasAbsolutePath ?? false;
   }
+}

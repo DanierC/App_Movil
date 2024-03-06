@@ -9,6 +9,7 @@ List<ReservaModel> reservaFromJson(String responseBody) {
 
 class ReservaModel {
   late int? id_Reservas;
+  late String? nombre_Reserva;
   late int? cantidad_Personas;
   late String? ubicacion_Mesa;
   late String? estado_Reserva;
@@ -16,7 +17,7 @@ class ReservaModel {
 
   Map<String, List<String>> getChoices() {
     return {
-      'ubicacion_Mesa': ['Cualquiera','I1','I2','I3','I4','D1','D2','D3','D4','C1','C2','C3'],
+      'ubicacion_Mesa': ['Cualquiera','1','2','3','4','5','6','7','8','9','10','11'],
       'estado_Reserva': ['Pendiente','Confirmado', 'Denegado'],
     };
   }
@@ -24,6 +25,7 @@ class ReservaModel {
 
   ReservaModel({
     this.id_Reservas,
+    this.nombre_Reserva,
     this.cantidad_Personas,
     this.ubicacion_Mesa,
     this.estado_Reserva,
@@ -33,6 +35,7 @@ class ReservaModel {
   factory ReservaModel.fromJson(Map<String, dynamic> json) {
     return ReservaModel(
       id_Reservas: json['id_Reservas'] as int?,
+      nombre_Reserva: json['nombre_Reserva'] as String?,
       cantidad_Personas: json['cantidad_Personas'] as int?,
       ubicacion_Mesa: json['ubicacion_Mesa'] as String?,
       estado_Reserva: json['estado_Reserva'] as String?,
@@ -43,6 +46,7 @@ class ReservaModel {
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['id_Reservas'] = id_Reservas;
+    data['nombre_Reserva'] = nombre_Reserva;
     data['cantidad_Personas'] = cantidad_Personas;
     data['ubicacion_Mesa'] = ubicacion_Mesa;
     data['estado_Reserva'] = estado_Reserva;

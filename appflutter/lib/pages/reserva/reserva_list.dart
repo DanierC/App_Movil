@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/reservar_model.dart';
-import 'package:appflutter/pages/reserva/reserva_item.dart';
-import 'package:appflutter/services/api_reserva.dart';
+import 'package:NivelesClub/models/reservar_model.dart';
+import 'package:NivelesClub/pages/reserva/reserva_item.dart';
+import 'package:NivelesClub/services/api_reserva.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
 class ReservaList extends StatefulWidget {

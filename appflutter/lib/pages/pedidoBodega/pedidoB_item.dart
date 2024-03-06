@@ -1,11 +1,11 @@
 // -*- coding: utf-8 -*-
 import 'package:flutter/material.dart';
 import '../../models/pedBodega_model.dart';
-import 'package:appflutter/models/producto_model.dart';
+import 'package:NivelesClub/models/producto_model.dart';
 import 'package:intl/intl.dart';
-import 'package:appflutter/services/api_producto.dart';
-import 'package:appflutter/models/usuarios_model.dart';
-import 'package:appflutter/services/api_usuarios.dart';
+import 'package:NivelesClub/services/api_producto.dart';
+import 'package:NivelesClub/models/usuarios_model.dart';
+import 'package:NivelesClub/services/api_usuarios.dart';
 
 class PedidoBItem extends StatelessWidget {
   final PedidoBModel? model;

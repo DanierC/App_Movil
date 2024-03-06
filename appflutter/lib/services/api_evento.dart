@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:appflutter/models/evento_model.dart';
+import 'package:NivelesClub/models/evento_model.dart';
 import 'package:http/http.dart' as http;
 import '../../config.dart';
 
@@ -54,10 +54,10 @@ class APIEvento {
         model.cantidad_Personas!.toString();
 
 
-    if (model.foto != null && isFileSelected) {
+    if (model.imagen_Evento != null && isFileSelected) {
       http.MultipartFile multipartFile = await http.MultipartFile.fromPath(
-        'foto',
-        model.foto!,
+        'imagen_Evento',
+        model.imagen_Evento!,
       );
 
       request.files.add(multipartFile);

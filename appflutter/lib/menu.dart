@@ -1,27 +1,27 @@
 import 'dart:io';
-import 'package:appflutter/usuario.dart';
-import 'package:appflutter/pages/registrar/registrar_list.dart';
-import 'package:appflutter/pages/reserva/reserva_add_edit.dart';
+import 'package:NivelesClub/usuario.dart';
+import 'package:NivelesClub/pages/registrar/registrar_list.dart';
+import 'package:NivelesClub/pages/reserva/reserva_add_edit.dart';
 import 'package:flutter/material.dart';
-import 'package:appflutter/AuthProvider.dart';
+import 'package:NivelesClub/AuthProvider.dart';
 import 'package:provider/provider.dart';
-import 'package:appflutter/main.dart';
-import 'package:appflutter/pages/producto/producto_list.dart';
-import 'package:appflutter/pages/evento/evento_list.dart';
-import 'package:appflutter/pages/registrar/registrar_add_edit.dart';
-import 'package:appflutter/pages/registrar/registrar_item.dart';
-import 'package:appflutter/pages/pedidoMesero/pedidoM_add_edit.dart';
-import 'package:appflutter/pages/pedidoMesero/pedidoM_list.dart';
-import 'package:appflutter/pages/pedidoBodega/pedidoB_edit.dart';
-import 'package:appflutter/pages/pedidoBodega/pedidoB_add.dart';
-import 'package:appflutter/pages/pedidoBodega/pedidoB_list.dart';
-import 'package:appflutter/pages/pedidoBodega/pedidoB_list2.dart';
-import 'package:appflutter/pages/musica/musica_list.dart';
-import 'package:appflutter/pages/reserva/reserva_list.dart';
-import 'package:appflutter/pages/inventario/inventario_list.dart';
+import 'package:NivelesClub/main.dart';
+import 'package:NivelesClub/pages/producto/producto_list.dart';
+import 'package:NivelesClub/pages/evento/evento_list.dart';
+import 'package:NivelesClub/pages/registrar/registrar_add_edit.dart';
+import 'package:NivelesClub/pages/registrar/registrar_item.dart';
+import 'package:NivelesClub/pages/pedidoMesero/pedidoM_add_edit.dart';
+import 'package:NivelesClub/pages/pedidoMesero/pedidoM_list.dart';
+import 'package:NivelesClub/pages/pedidoBodega/pedidoB_edit.dart';
+import 'package:NivelesClub/pages/pedidoBodega/pedidoB_add.dart';
+import 'package:NivelesClub/pages/pedidoBodega/pedidoB_list.dart';
+import 'package:NivelesClub/pages/pedidoBodega/pedidoB_list2.dart';
+import 'package:NivelesClub/pages/musica/musica_list.dart';
+import 'package:NivelesClub/pages/reserva/reserva_list.dart';
+import 'package:NivelesClub/pages/inventario/inventario_list.dart';
 /*import 'package:appflutter/pages/reserva/reserva_add_edit.dart';*/
-import 'package:appflutter/pages/suge_quejas/sugequejas_list.dart';
-import 'package:appflutter/pages/inicio/inicio.dart';
+import 'package:NivelesClub/pages/suge_quejas/sugequejas_list.dart';
+import 'package:NivelesClub/pages/inicio/inicio.dart';
 
 class Menu extends StatefulWidget {
   @override

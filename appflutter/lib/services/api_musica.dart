@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:appflutter/models/musica_model.dart';
+import 'package:NivelesClub/models/musica_model.dart';
 import 'package:http/http.dart' as http;
 import '../../config.dart';
 import 'dart:convert';

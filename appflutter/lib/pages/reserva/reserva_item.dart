@@ -48,7 +48,15 @@ class ReservaItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Cantidad",
+                "Nombre de la Reserva",
+                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              Text(
+                model!.nombre_Reserva.toString(),
+                style: TextStyle(color: Colors.black),
+              ),
+              Text(
+                "\nCantidad",
                 style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
               ),
               Text(

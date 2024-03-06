@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/pedMesero_model.dart';
-import 'package:appflutter/pages/pedidoMesero/pedidoM_item.dart';
-import 'package:appflutter/services/api_pedidoM.dart';
+import 'package:NivelesClub/models/pedMesero_model.dart';
+import 'package:NivelesClub/pages/pedidoMesero/pedidoM_item.dart';
+import 'package:NivelesClub/services/api_pedidoM.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
 class PedidoMList extends StatefulWidget {

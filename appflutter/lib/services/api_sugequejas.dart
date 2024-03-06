@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:appflutter/models/sugeQuejas_model.dart';
+import 'package:NivelesClub/models/sugeQuejas_model.dart';
 import 'package:http/http.dart' as http;
 import '../../config.dart';
 import 'package:intl/intl.dart';

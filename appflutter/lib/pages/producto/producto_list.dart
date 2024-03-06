@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/producto_model.dart';
-import 'package:appflutter/pages/producto/producto_item.dart';
-import 'package:appflutter/services/api_producto.dart';
+import 'package:NivelesClub/models/producto_model.dart';
+import 'package:NivelesClub/pages/producto/producto_item.dart';
+import 'package:NivelesClub/services/api_producto.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
 class ProductosList extends StatefulWidget {
@@ -72,10 +72,6 @@ class _ProductosListState extends State<ProductosList> {
           return const Center(
             child: Text('Error al cargar productos'),
           );
-        } else if (!model.hasData || model.data!.isEmpty) {
-          return const Center(
-            child: Text('No hay productos disponibles'),
-          );
         } else {
           return productoList(model.data);
         }
@@ -83,7 +79,7 @@ class _ProductosListState extends State<ProductosList> {
     );
   }
 
-  Widget productoList(productos) {
+  Widget productoList(List<ProductoModel>? productos) {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
@@ -134,30 +130,31 @@ class _ProductosListState extends State<ProductosList> {
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const ClampingScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                itemCount: productos!.length,
-                itemBuilder: (context, index) {
-                  return ProductoItem(
-                    model: productos[index],
-                    onDelete: (ProductoModel model) {
-                      setState(() {
-                        isApiCallProcess = true;
-                      });
+              if (productos != null && productos.isNotEmpty)
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const ClampingScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  itemCount: productos.length,
+                  itemBuilder: (context, index) {
+                    return ProductoItem(
+                      model: productos[index],
+                      onDelete: (ProductoModel model) {
+                        setState(() {
+                          isApiCallProcess = true;
+                        });
 
-                      APIProducto.deleteProducto(model.id_Articulos).then(
-                            (response) {
-                          setState(() {
-                            isApiCallProcess = false;
-                          });
-                        },
-                      );
-                    },
-                  );
-                },
-              ),
+                        APIProducto.deleteProducto(model.id_Articulos).then(
+                              (response) {
+                            setState(() {
+                              isApiCallProcess = false;
+                            });
+                          },
+                        );
+                      },
+                    );
+                  },
+                ),
             ],
           )
         ],

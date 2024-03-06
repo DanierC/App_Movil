@@ -1,10 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/producto_model.dart';
-import 'package:appflutter/models/inventario_model.dart';
-import 'package:appflutter/services/api_inventario.dart';
-import 'package:appflutter/services/api_producto.dart';
+import 'package:NivelesClub/models/producto_model.dart';
+import 'package:NivelesClub/models/inventario_model.dart';
+import 'package:NivelesClub/services/api_inventario.dart';
+import 'package:NivelesClub/services/api_producto.dart';
 
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/sugeQuejas_model.dart';
-import 'package:appflutter/pages/suge_quejas/sugequejas_item.dart';
-import 'package:appflutter/services/api_sugequejas.dart';
+import 'package:NivelesClub/models/sugeQuejas_model.dart';
+import 'package:NivelesClub/pages/suge_quejas/sugequejas_item.dart';
+import 'package:NivelesClub/services/api_sugequejas.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
 class SugeQList extends StatefulWidget {

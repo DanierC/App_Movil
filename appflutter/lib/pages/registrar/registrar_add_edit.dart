@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/registrar_model.dart';
-import 'package:appflutter/services/api_registrar.dart';
+import 'package:NivelesClub/models/registrar_model.dart';
+import 'package:NivelesClub/services/api_registrar.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
@@ -112,8 +112,8 @@ class _RegistrarAddEditState extends State<RegistrarAddEdit> {
 
                 // Verificar que la contraseña cumple con los criterios
                 if (!_isPasswordValid(onValidateVal)) {
-                  return 'La contraseña debe tener más de 8 caracteres, al menos 1 número, '
-                      '1 letra mayúscula, 1 letra minúscula y 1 caracter especial';
+                  return 'La contraseña debe tener más de 8 caracteres, \n al menos 1 número, '
+                      '1 letra mayúscula, \n1 letra minúscula y 1 caracter especial';
                 }
 
                 return null;

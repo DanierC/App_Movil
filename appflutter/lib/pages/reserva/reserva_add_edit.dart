@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/reservar_model.dart';
-import 'package:appflutter/services/api_reserva.dart';
+import 'package:NivelesClub/models/reservar_model.dart';
+import 'package:NivelesClub/services/api_reserva.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
@@ -106,7 +106,7 @@ class _ReservaAddEditState extends State<ReservaAddEdit> {
           ),
           Center(
             child: FormHelper.submitButton(
-              "Save",
+              "Guardar Reserva",
                   () {
                 if (validateAndSave()) {
                   setState(() {

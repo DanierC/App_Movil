@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:appflutter/usuario.dart';
+import 'package:NivelesClub/usuario.dart';
 
 class AuthProvider with ChangeNotifier {
   static AuthProvider? _instance; // Instancia única

@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/pedMesero_model.dart';
-import 'package:appflutter/models/producto_model.dart';
-import 'package:appflutter/services/api_pedidoM.dart';
-import 'package:appflutter/services/api_producto.dart';
+import 'package:NivelesClub/models/pedMesero_model.dart';
+import 'package:NivelesClub/models/producto_model.dart';
+import 'package:NivelesClub/services/api_pedidoM.dart';
+import 'package:NivelesClub/services/api_producto.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';

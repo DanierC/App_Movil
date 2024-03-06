@@ -1,8 +1,8 @@
-import 'package:appflutter/services/api_registrar.dart';
+import 'package:NivelesClub/services/api_registrar.dart';
 import 'package:flutter/material.dart';
-import 'package:appflutter/models/usuarios_model.dart';
-import 'package:appflutter/pages/registrar/registrar_item.dart';
-import 'package:appflutter/services/api_usuarios.dart';
+import 'package:NivelesClub/models/usuarios_model.dart';
+import 'package:NivelesClub/pages/registrar/registrar_item.dart';
+import 'package:NivelesClub/services/api_usuarios.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
 class UsuarioList extends StatefulWidget {
