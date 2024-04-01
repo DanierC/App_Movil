@@ -1,6 +1,6 @@
 class Config {
   static const String appName = "Niveles Club";
-  static const String apiURL = '192.168.1.11';
+  static const String apiURL = '192.168.1.10';
   static const inventarioAPI = "Inventario/";
   static const eventosAPI = "Eventos/";
   static const reservaAPI = "Reservas/";

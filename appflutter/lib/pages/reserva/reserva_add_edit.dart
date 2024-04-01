@@ -73,7 +73,16 @@ class _ReservaAddEditState extends State<ReservaAddEdit> {
         children: <Widget>[
           Container(
             alignment: Alignment.center,
-            child: DropdownButton<String>(
+            child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              Text(
+              'Mesa:',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              textAlign: TextAlign.right,
+            ),
+            SizedBox(width: 10),DropdownButton<String>(
               value: reservaModel!.ubicacion_Mesa,
               items: opciones['ubicacion_Mesa']?.map((e) => DropdownMenuItem(
                 value: e,
@@ -85,10 +94,21 @@ class _ReservaAddEditState extends State<ReservaAddEdit> {
                 });
               },
             ),
+              ],
+            ),
           ),
           Container(
             alignment: Alignment.center,
-            child: DropdownButton<String>(
+            child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              Text(
+              'Estado reserva: ',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              textAlign: TextAlign.right,
+            ),
+                SizedBox(width: 10), DropdownButton<String>(
               value: reservaModel!.estado_Reserva,
               items: opciones['estado_Reserva']?.map((e) => DropdownMenuItem(
                 value: e,
@@ -99,6 +119,8 @@ class _ReservaAddEditState extends State<ReservaAddEdit> {
                   reservaModel!.estado_Reserva = value;
                 });
               },
+            ),
+              ],
             ),
           ),
           const SizedBox(
